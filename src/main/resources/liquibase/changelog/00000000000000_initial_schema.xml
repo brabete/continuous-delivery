@@ -75,7 +75,7 @@
                                 columnDataType="varchar(60)"
                                 tableName="user"/>
         <loadData
-                  file="config/liquibase/data/user.csv"
+                  file="liquibase/data/user.csv"
                   separator=";"
                   tableName="user">
             <column name="id" type="numeric"/>
@@ -84,12 +84,12 @@
         </loadData>
         <dropDefaultValue tableName="user" columnName="created_date" columnDataType="datetime"/>
         <loadData
-                  file="config/liquibase/data/authority.csv"
+                  file="liquibase/data/authority.csv"
                   separator=";"
                   tableName="authority"/>
 
         <loadData
-                  file="config/liquibase/data/user_authority.csv"
+                  file="liquibase/data/user_authority.csv"
                   separator=";"
                   tableName="user_authority"/>
         <createTable tableName="persistent_audit_event">

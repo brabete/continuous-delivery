@@ -29,38 +29,9 @@ ext {
     set('springCloudVersion', "Greenwich.SR2")
 }
 
-liquibase {
-    activities {
-        main {
-            driver "org.h2.Driver"
-            url "jdbc:h2:mem:testdb"
-            username "sa"
-            password "password"
-            changeLogFile "$projectDir/src/main/resources/liquibase/master.xml"
-            defaultSchemaName ""
-            logLevel "debug"
-            classpath "src/main/resources/"
-        }
-        diffLog {
-            driver "org.h2.Driver"
-            url "jdbc:h2:mem:testdb"
-            username "sa"
-            password "password"
-            changeLogFile "src/main/resources/liquibase/changelog/diffLog.xml"
-            referenceUrl "hibernate:spring:com.example.continuousdelivery.domain?dialect=org.hibernate.dialect.H2Dialect&hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy"
-            defaultSchemaName ""
-            logLevel "debug"
-            classpath "$buildDir/classes/java/main"
-        }
-    }
-
-    runList = 'main'
-}
-
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
