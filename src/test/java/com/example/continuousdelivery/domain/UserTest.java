@@ -17,8 +17,6 @@ import java.util.Set;
 @SpringBootTest
 public class UserTest {
 
-    private final Logger log = LoggerFactory.getLogger(UserTest.class);
-
     @Autowired
     private LocalValidatorFactoryBean validator;
 
@@ -30,13 +28,13 @@ public class UserTest {
 
         Set<ConstraintViolation<User>> violations = validator.validate(user);
 
-        String message = validator.validateProperty(user, "login")
+        String violationMessage = validator.validateProperty(user, "login")
                 .iterator()
                 .next()
                 .getMessage();
 
         Assert.assertEquals(1, violations.size());
-        Assert.assertEquals("size must be between 1 and 50", message);
+        Assert.assertEquals("size must be between 1 and 50", violationMessage);
     }
 
 
