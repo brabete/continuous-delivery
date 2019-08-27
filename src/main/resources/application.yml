@@ -1,3 +1,9 @@
+info:
+  app:
+    name: "Continuous Delivery"
+    version: "1.0.0"
+    description: "Example repo for showcasing best practices around Continuous Delivery"
+
 spring:
   datasource:
     driverClassName: org.h2.Driver
@@ -6,5 +12,3 @@ spring:
     password: password
   liquibase:
     change-log: "classpath:liquibase/master.xml"
-
-
