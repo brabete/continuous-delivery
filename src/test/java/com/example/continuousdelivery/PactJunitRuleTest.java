@@ -5,6 +5,7 @@ import au.com.dius.pact.consumer.PactProviderRuleMk2;
 import au.com.dius.pact.consumer.PactVerification;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.model.RequestResponsePact;
+import com.example.continuousdelivery.domain.User;
 import com.example.continuousdelivery.service.UserService;
 import org.junit.Rule;
 import org.junit.Test;
@@ -15,6 +16,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -34,20 +37,28 @@ public class PactJunitRuleTest {
         return builder
                 .given("")
                 .uponReceiving("Example Pact interaction")
-                .path("/users")
-                .query("name=Miku")
+                .path("/api/users/admin")
                 .method("GET")
                 .willRespondWith()
                 .headers(headers)
                 .status(200)
                 .body("{\n" +
-                        "    \"salary\": 45000,\n" +
-                        "    \"name\": \"Hatsune Miku\",\n" +
-                        "    \"nationality\": \"Japan\",\n" +
-                        "    \"contact\": {\n" +
-                        "        \"Email\": \"hatsune.miku@ariman.com\",\n" +
-                        "        \"Phone Number\": \"9090950\"\n" +
-                        "    }\n" +
+                        "    \"id\": 3,\n" +
+                        "    \"login\": \"admin\",\n" +
+                        "    \"firstName\": \"Administrator\",\n" +
+                        "    \"lastName\": \"Administrator\",\n" +
+                        "    \"email\": \"admin@localhost\",\n" +
+                        "    \"imageUrl\": \"\",\n" +
+                        "    \"activated\": true,\n" +
+                        "    \"langKey\": \"en\",\n" +
+                        "    \"createdBy\": \"system\",\n" +
+                        "    \"createdDate\": null,\n" +
+                        "    \"lastModifiedBy\": \"system\",\n" +
+                        "    \"lastModifiedDate\": null,\n" +
+                        "    \"authorities\": [\n" +
+                        "           \"ROLE_USER\",\n" +
+                        "           \"ROLE_ADMIN\",\n" +
+                        "      ]\n" +
                         "}")
                 .toPact();
     }
@@ -56,7 +67,7 @@ public class PactJunitRuleTest {
     @PactVerification
     public void runTest() {
 //        userService.setBackendURL(mockProvider.getUrl());
-//        Information information = userService.getInformation();
-//        assertEquals(information.getName(), "Hatsune Miku");
+//        User user = userService.getUser();
+//        assertEquals(user.getLogin(), "admin");
     }
 }
