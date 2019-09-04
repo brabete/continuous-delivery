@@ -69,15 +69,26 @@ task integrationTest(type: Test) {
     group = "verification"
     include "**/*IT*", "**/*IntTest*"
     exclude "**/*CucumberIT*"
-
     testLogging {
-        events 'FAILED', 'SKIPPED'
+        events 'FAILED', 'SKIPPED', 'PASSED'
+    }
+
+    reports.html.enabled = false
+}
+
+task cucumberTest(type: Test) {
+    description = "Execute Cucumber Behaviour Driven tests."
+    group = "verification"
+    include "**/*CucumberIT*"
+    testLogging {
+        events 'FAILED', 'SKIPPED', 'PASSED'
     }
 
     reports.html.enabled = false
 }
 
 check.dependsOn integrationTest
+check.dependsOn cucumberTest
 
 task testReport(type: TestReport) {
     destinationDir = file("$buildDir/reports/tests")
@@ -87,6 +98,11 @@ task testReport(type: TestReport) {
 task integrationTestReport(type: TestReport) {
     destinationDir = file("$buildDir/reports/tests")
     reportOn integrationTest
+}
+
+task cucumberTestReport(type: TestReport) {
+    destinationDir = file("$buildDir/reports/tests")
+    reportOn cucumberTest
 }
 
 dependencies {
