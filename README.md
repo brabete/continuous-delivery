@@ -1,4 +1,18 @@
-# Getting Started
+# Getting Started with Continuous Delivery in Java
+
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=brabete_continuous-delivery)](https://sonarcloud.io/dashboard?id=brabete_continuous-delivery)
+
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=brabete_continuous-delivery&metric=bugs)](https://sonarcloud.io/dashboard?id=brabete_continuous-delivery)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=brabete_continuous-delivery&metric=code_smells)](https://sonarcloud.io/dashboard?id=brabete_continuous-delivery)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=brabete_continuous-delivery&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=brabete_continuous-delivery)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=brabete_continuous-delivery&metric=ncloc)](https://sonarcloud.io/dashboard?id=brabete_continuous-delivery)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=brabete_continuous-delivery&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=brabete_continuous-delivery)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=brabete_continuous-delivery&metric=coverage)](https://sonarcloud.io/dashboard?id=brabete_continuous-delivery)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=brabete_continuous-delivery&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=brabete_continuous-delivery)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=brabete_continuous-delivery&metric=sqale_index)](https://sonarcloud.io/dashboard?id=brabete_continuous-delivery)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=brabete_continuous-delivery&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=brabete_continuous-delivery)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=brabete_continuous-delivery&metric=security_rating)](https://sonarcloud.io/dashboard?id=brabete_continuous-delivery)
+
 
 ### Reference Documentation
 For further reference, please consider the following sections:
