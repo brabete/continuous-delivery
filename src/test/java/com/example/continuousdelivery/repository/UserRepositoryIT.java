@@ -1,6 +1,5 @@
 package com.example.continuousdelivery.repository;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {
-        "spring.datasource.url=jdbc:tc:postgresql:10-alpine://testcontainers/workshop",
+        "spring.datasource.url=jdbc:tc:postgresql:10-alpine://testcontainers/test",
         "spring.datasource.driver-class-name=org.testcontainers.jdbc.ContainerDatabaseDriver"
 })
 public class UserRepositoryIT {
@@ -23,6 +22,6 @@ public class UserRepositoryIT {
 
     @Test
     public void testEmptyIfNoKey() {
-        userRepository.findAll();
+        assertThat(userRepository.findOneByLogin("null").isPresent()).isFalse();
     }
 }

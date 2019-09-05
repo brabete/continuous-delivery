@@ -11,7 +11,7 @@
     </changeSet>
 
     <changeSet id="00000000000001" author="andrei">
-        <createTable tableName="user">
+        <createTable tableName="user_t">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -69,20 +69,20 @@
                                  baseTableName="user_authority"
                                  constraintName="fk_user_id"
                                  referencedColumnNames="id"
-                                 referencedTableName="user"/>
+                                 referencedTableName="user_t"/>
 
         <addNotNullConstraint   columnName="password_hash"
                                 columnDataType="varchar(60)"
-                                tableName="user"/>
+                                tableName="user_t"/>
         <loadData
                   file="liquibase/data/user.csv"
                   separator=";"
-                  tableName="user">
+                  tableName="user_t">
             <column name="id" type="numeric"/>
             <column name="activated" type="boolean"/>
             <column name="created_date" type="timestamp"/>
         </loadData>
-        <dropDefaultValue tableName="user" columnName="created_date" columnDataType="datetime"/>
+        <dropDefaultValue tableName="user_t" columnName="created_date" columnDataType="datetime"/>
         <loadData
                   file="liquibase/data/authority.csv"
                   separator=";"
