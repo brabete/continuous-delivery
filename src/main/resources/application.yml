@@ -12,3 +12,6 @@ spring:
     password: password
   liquibase:
     change-log: "classpath:liquibase/master.xml"
+  h2:
+    console:
+      enabled: false
