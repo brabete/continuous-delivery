@@ -32,7 +32,7 @@ import static org.mockito.Mockito.when;
 @Transactional
 @SpringBootTest(classes = ContinuousDeliveryApplication.class,
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {
-        "spring.datasource.url=jdbc:tc:postgresql:10-alpine://testcontainers/test",
+        "spring.datasource.url=jdbc:tc:postgresql:11-alpine://testcontainers/test",
         "spring.datasource.driver-class-name=org.testcontainers.jdbc.ContainerDatabaseDriver"
 })
 public class UserServiceIT {
@@ -189,7 +189,7 @@ public class UserServiceIT {
     @Transactional
     public void assertThatAnonymousUserIsNotGet() {
         user.setLogin(Constants.ANONYMOUS_USER);
-        if (userRepository.findOneByLogin(Constants.ANONYMOUS_USER).isEmpty()) {
+        if (userRepository.findOneByLogin(Constants.ANONYMOUS_USER).isPresent()) {
             userRepository.saveAndFlush(user);
         }
         final PageRequest pageable = PageRequest.of(0, (int) userRepository.count());
