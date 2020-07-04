@@ -19,3 +19,5 @@ spring:
     url:  jdbc:postgresql://[::1]:5432/continuous_delivery
     username: admin
     password: password
+  liquibase:
+    change-log: classpath:liquibase/master.xml

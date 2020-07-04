@@ -19,7 +19,7 @@ import static io.restassured.RestAssured.given;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {
-        "spring.datasource.url=jdbc:tc:postgresql:10-alpine://testcontainers/workshop",
+        "spring.datasource.url=jdbc:tc:postgresql:11-alpine://testcontainers/workshop",
         "spring.datasource.driver-class-name=org.testcontainers.jdbc.ContainerDatabaseDriver"
 })
 public class ContinuousDeliveryApplicationTests {
