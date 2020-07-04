@@ -11,6 +11,8 @@ spring:
     show-sql: true
     properties:
       hibernate:
+        schema_update:
+          unique_constraint_strategy: RECREATE_QUIETLY
         jdbc:
           lob:
             non_contextual_creation: true

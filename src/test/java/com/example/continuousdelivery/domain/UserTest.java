@@ -1,5 +1,6 @@
 package com.example.continuousdelivery.domain;
 
+import com.example.continuousdelivery.ContinuousDeliveryApplication;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +13,11 @@ import javax.validation.ConstraintViolation;
 import java.util.Set;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = ContinuousDeliveryApplication.class,
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {
+        "spring.datasource.url=jdbc:tc:postgresql:11-alpine://testcontainers/test",
+        "spring.datasource.driver-class-name=org.testcontainers.jdbc.ContainerDatabaseDriver"
+})
 public class UserTest {
 
     @Autowired

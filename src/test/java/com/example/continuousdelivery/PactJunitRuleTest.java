@@ -28,7 +28,11 @@ import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = ContinuousDeliveryApplication.class,
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {
+        "spring.datasource.url=jdbc:tc:postgresql:11-alpine://testcontainers/test",
+        "spring.datasource.driver-class-name=org.testcontainers.jdbc.ContainerDatabaseDriver"
+})
 public class PactJunitRuleTest {
 
     @Rule

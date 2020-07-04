@@ -3,12 +3,12 @@ package com.example.continuousdelivery.cucumber;
 import com.example.continuousdelivery.ContinuousDeliveryApplication;
 import io.cucumber.java.Before;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.web.WebAppConfiguration;
 
-@SpringBootTest
-@WebAppConfiguration
-@ContextConfiguration(classes = ContinuousDeliveryApplication.class)
+@SpringBootTest(classes = ContinuousDeliveryApplication.class,
+        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {
+        "spring.datasource.url=jdbc:tc:postgresql:11-alpine://testcontainers/test",
+        "spring.datasource.driver-class-name=org.testcontainers.jdbc.ContainerDatabaseDriver"
+})
 public class CucumberContextConfiguration {
 
     @Before
