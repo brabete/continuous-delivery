@@ -121,6 +121,11 @@
 
     <changeSet author="Andrei" id="00000000000002">
         <loadData
+                file="classpath:liquibase/data/authority.csv"
+                separator=";"
+                tableName="authority"/>
+
+        <loadData
                 file="classpath:liquibase/data/user.csv"
                 separator=";"
                 schemaName="public"
@@ -132,10 +137,6 @@
 
         <dropDefaultValue tableName="user_t" columnName="created_date" columnDataType="datetime"/>
 
-        <loadData
-                file="classpath:liquibase/data/authority.csv"
-                separator=";"
-                tableName="authority"/>
 
         <loadData
                 file="classpath:liquibase/data/user_authority.csv"
