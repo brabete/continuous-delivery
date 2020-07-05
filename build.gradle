@@ -50,7 +50,7 @@ ext {
     set('wireMockVersion', "2.24.1")
     set('problemSpringVersion', "0.24.0")
     set('jacksonVersion', "2.10.0")
-    set('nettyCodecVersion', "4.1.44.Final")
+    set('nettyCodecVersion', "4.1.50.Final")
 }
 
 test {
@@ -123,6 +123,7 @@ dependencies {
     implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
     implementation "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
     implementation "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
+    implementation "io.netty:netty-codec-http:${nettyCodecVersion}"
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
