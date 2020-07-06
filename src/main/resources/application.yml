@@ -15,10 +15,19 @@ spring:
           lob:
             non_contextual_creation: true
     open-in-view: false
-  datasource:
-    driverClassName: org.postgresql.Driver
-    url:  jdbc:postgresql://[::1]:5432/continuous_delivery
-    username: admin
-    password: password
   liquibase:
     change-log: classpath:liquibase/master.xml
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url:  jdbc:postgresql://0.0.0.0:5432/continuous_delivery
+    username: admin
+    password: password
+---
+spring:
+  profiles: docker-compose
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url:  jdbc:postgresql://postgres:5432/continuous_delivery
+    username: admin
+    password: password
+
